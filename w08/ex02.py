@@ -8,34 +8,25 @@ with open('WorldSeriesWinners.txt') as input_file:
         if year in skip:
             year += 1
         if team in teams:
-            teams[team]['win_years'].append(year)
-            teams[team]['count'] += 1
+            teams[team].append(year)
         else:
-            teams[team] = dict(
-                {
-                    'win_years': list([year]),
-                    'count': 1
-                }
-            )
+            teams[team] = list([year])
         year += 1
 
 for k, v in teams.items():
-    print(k, ' wins ', v['count'], ' times')
+    print(k, ' wins ', len(v), ' times')
 
 op = input('input 1 or 2: ')
 if op == '1':
     team = input('team: ')
     if team in teams.keys():
-        print(team, ' wins ', teams[team]['count'], ' times')
-        for y in teams[team]['win_years']:
+        print(team, ' wins ', len(teams[team]), ' times')
+        for y in teams[team]:
             print(y)
     else:
         print(':(')
 elif op == '2':
-    if team in teams.keys():
-        t = int(input('win times: '))
-        for k, v in teams.items():
-            if v['count'] == t:
-                print(k, ' wins ', v['count'], ' times')
-    else:
-        print(':(')
+    t = int(input('win times: '))
+    for k, v in teams.items():
+        if len(v) == t:
+            print(k, ' wins ', len(v), ' times')
