@@ -3,8 +3,7 @@ skip = set({1904, 1994})
 year = 1903
 
 with open('WorldSeriesWinners.txt') as input_file:
-    for line in input_file:
-        team = line.strip()
+    for team in (line.strip() for line in input_file):
         if year in skip:
             year += 1
         if team in teams:
@@ -14,13 +13,13 @@ with open('WorldSeriesWinners.txt') as input_file:
         year += 1
 
 for k, v in teams.items():
-    print(k, ' wins ', len(v), ' times')
+    print(k + '\t' * (4 - len(k) // 8), 'wins', len(v), 'times')
 
 op = input('input 1 or 2: ')
 if op == '1':
     team = input('team: ')
-    if team in teams.keys():
-        print(team, ' wins ', len(teams[team]), ' times')
+    if team in teams:
+        print(team+ '\t' * (4 - len(k) // 8), 'wins', len(teams[team]), 'times')
         for y in teams[team]:
             print(y)
     else:
@@ -29,4 +28,4 @@ elif op == '2':
     t = int(input('win times: '))
     for k, v in teams.items():
         if len(v) == t:
-            print(k, ' wins ', len(v), ' times')
+            print(k + '\t' * (4 - len(k) // 8), 'wins', len(v), 'times')
