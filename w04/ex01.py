@@ -10,8 +10,8 @@ def main():
     grid_size = int(input('Grid size: '))
 
     print_boundary(column, grid_size)
-    for i in range(row):
-        for j in range(grid_size):
+    for _ in range(row):
+        for _ in range(grid_size):
             print_middle(column, grid_size)
         print_boundary(column, grid_size)
 
