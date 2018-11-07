@@ -18,9 +18,7 @@ with open('log.txt') as log_file:
         if not found_contributor:
             m = re.search(regex_contributor, line)
             if m:
-                contributor = m.group(1)
-                organization = m.group(2)
-                time = m.group(4)
+                contributor, organization, time = m.group(1, 2, 4)
                 found_contributor = True
         else:
             m = re.search(regex_commit_version, line)
@@ -28,14 +26,8 @@ with open('log.txt') as log_file:
                 version = m.group(1)
                 found_contributor = False
                 
-                if contributor in contributors:
-                    contributors[contributor].append(version)
-                else:
-                    contributors[contributor] = list([version])
-                if organization in organizations:
-                    organizations[organization].append(version)
-                else:
-                    organizations[organization] = list([version])
+                contributors.setdefault(contributor, list()).append(version)
+                organizations.setdefault(organization, list()).append(version)
                 commits[version] = time
 
 for k, v in contributors.items():
