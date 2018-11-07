@@ -6,10 +6,7 @@ with open('WorldSeriesWinners.txt') as input_file:
     for team in (line.strip() for line in input_file):
         if year in skip:
             year += 1
-        if team in teams:
-            teams[team].append(year)
-        else:
-            teams[team] = list([year])
+        teams.setdefault(team, list()).append(year)
         year += 1
 
 for k, v in teams.items():
