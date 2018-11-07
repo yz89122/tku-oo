@@ -8,10 +8,6 @@ contributors = dict() # contributors -> commits versions
 commits = dict() # commits versions -> date time
 
 found_contributor = False
-contributor = ''
-organization = ''
-time = ''
-version = ''
 
 with open('log.txt') as log_file:
     for line in log_file:
