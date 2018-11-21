@@ -1,0 +1,73 @@
+寫一個名為EmployeeClass.py的檔案
+  裡頭包含有三個 class
+    1. EmployeeClass
+    2. WorkerClass(繼承 EmployeeClass)
+    3. SupervisorClass(繼承 EmployeeClass):
+
+  公司裡頭有兩種員工，普通員工與領班員工
+    1. EmployeeClass裡頭包含 name、id、employee_type，分別代表員工姓名、編號、類別
+    2. WorkerClass裡頭包含 shift 與 rate，分別代表普通員工之排班(日班或夜班) 與 時薪
+    3. SupervisorClass裡頭包含 salary 與 bonus，分別代表該領班員工之薪資與獎金
+    4. 要寫 __str__ function於 WorkerClass 與 SupervisorClass 直接印出該 class 資料
+
+然後寫一個名為main.py的檔案，來做整體流程之操作
+  程式裡頭包含新增員工與列出所有員工功能
+  1. 新增之員工使用一個 dictionary 以員工id 作為 key 來儲存員工資料
+  2. List all 則 traverse dictionary 來把所有員工資訊印出
+
+==================== DEMO ======================== 
+
+D:\teaching\107\107-1 物件導向 (日)\my_source\quiz\w11_class_quiz>python main.py
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+0. Quit the program
+
+Enter your choice: 0
+
+D:\teaching\107\107-1 物件導向 (日)\my_source\quiz\w11_class_quiz>python main.py
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+0. Quit the program
+
+Enter your choice: 1
+Please enter the employee ID: 20
+The employee name: Tom
+Type (1) Worker (2) Supervisor: 1
+Shift (1) day (2) night: 1
+Rate: 150
+The entry has been added.
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+0. Quit the program
+
+Enter your choice: 1
+Please enter the employee ID: 60
+The employee name: Bill
+Type (1) Worker (2) Supervisor: 2
+Salary: 400
+Bonus: 20
+The entry has been added.
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+0. Quit the program
+
+Enter your choice: 2
+W- Name: Tom, ID: 20, Shift: 1, Rate: 150
+S- Name: Bill, ID: 60, Salary: 400, Bonus: 20
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+0. Quit the program
+
+Enter your choice: 0
+
+D:\teaching\107\107-1 物件導向 (日)\my_source\quiz\w11_class_quiz>
