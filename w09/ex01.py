@@ -1,10 +1,11 @@
 import re
+import collections
 
 regex_contributor = '^From ([a-zA-Z0-9.]+?)@([a-zA-Z0-9]+?(\\.[a-zA-Z0-9]+)+) (... ... .. ..:..:.. ....)$'
 regex_commit_version = 'svn commit: r(.....)'
 
-organizations = dict() # org name -> commits versions
-contributors = dict() # contributors -> commits versions
+organizations = collections.defaultdict(list) # org name -> commits versions
+contributors = collections.defaultdict(list) # contributors -> commits versions
 commits = dict() # commits versions -> date time
 
 found_contributor = False
@@ -22,8 +23,8 @@ with open('log.txt') as log_file:
                 version = m.group(1)
                 found_contributor = False
                 
-                contributors.setdefault(contributor, list()).append(version)
-                organizations.setdefault(organization, list()).append(version)
+                contributors[contributor].append(version)
+                organizations[organization].append(version)
                 commits[version] = time
 
 for k, v in contributors.items():
