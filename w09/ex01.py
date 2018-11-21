@@ -27,10 +27,10 @@ with open('log.txt') as log_file:
                 commits[version] = time
 
 for k, v in contributors.items():
-    print('User', k, 'committed versions:', v) # I'm so lazy
+    print('User', k, 'committed versions:', ' '.join(v))
 print()
 for k, v in organizations.items():
-    print('Organization', k, 'committed versions:', v) # :P
+    print('Organization', k, 'committed versions:', ' '.join(v))
 print()
 for k, v in commits.items():
-    print('Version', k, 'created by', v) # :D
+    print('Version', k, 'created at', v)
