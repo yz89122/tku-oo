@@ -1,12 +1,14 @@
-teams = dict()
+import collections
+
+teams = collections.defaultdict(list)
 skip = set({1904, 1994})
 year = 1903
 
 with open('WorldSeriesWinners.txt') as input_file:
     for team in (line.strip() for line in input_file):
-        if year in skip:
+        while year in skip:
             year += 1
-        teams.setdefault(team, list()).append(year)
+        teams[team].append(year)
         year += 1
 
 for k, v in teams.items():
@@ -17,8 +19,7 @@ if op == '1':
     team = input('team: ')
     if team in teams:
         print(team+ '\t' * (4 - len(k) // 8), 'wins', len(teams[team]), 'times')
-        for y in teams[team]:
-            print(y)
+        print(' '.join((str(year) for year in teams[team])))
     else:
         print(':(')
 elif op == '2':
