@@ -1,0 +1,98 @@
+D:\teaching\107\107-1 物件導向 (日)\my_source\quiz\w11_class_quiz>python main.py
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice: 2
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice: 1
+Please enter the employee ID: 1
+The employee name: 1
+Type (1) Worker (2) Supervisor: 1
+Shift (1) day (2) night: 1
+Rate: 1
+The entry has been added.
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice: 2
+W- Name: 1, ID: 1, Shift: 1, Rate: 1
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice: 3
+Please enter the employee_id: 5
+Loop up fail! No such employee!
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice: 4
+Enter an employee ID: 1
+Current name is 1, enter a new name:333
+Current shift is 1, new shift:1
+Current rate is 1, new rate:5
+Information updated.
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice: 0
+
+D:\teaching\107\107-1 物件導向 (日)\my_source\quiz\w11_class_quiz>python main.py
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice: 2
+W- Name: 333, ID: 1, Shift: 1, Rate: 5
+
+--------- Menu ---------
+1. Add a new employee
+2. List all
+3. Look up a employee
+4. Change an existing employee
+5. Delete a employee
+0. Quit the program
+
+Enter your choice:
