@@ -3,13 +3,15 @@ from employee import EmployeeFromKB
 
 
 def print_help():
-    print('---------- Menu ----------')
-    print('1. Add a new employee')
-    print('2. List all')
-    print('3. Look up a employee')
-    print('4. Change an existing employee')
-    print('5. Delete a employee')
-    print('0. Quit this program')
+    print('''
+    --------- Menu ---------
+    1. Add a new employee
+    2. List all
+    3. Look up a employee
+    4. Change an existing employee
+    5. Delete a employee
+    0. Quit the program
+    ''')
 
 
 def quit_this_program(*arg):
