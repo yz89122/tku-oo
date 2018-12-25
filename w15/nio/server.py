@@ -34,76 +34,43 @@ class EmployeeListAllHandler(RequestHandler):
         )))
 
 class EmployeeAddHandler(RequestHandler):
-    def get(self):
-        required_args = (
-            'id',
-            'type',
-            'name',
-        )
-        worker_required = (
-            'shift',
-            'rate'
-        )
-        supervisor_required = (
-            'salary',
-            'bonus'
-        )
-        args_result = dict()
-        for required in required_args:
-            a = self.get_argument(required, None)
-            if a is None:
-                self.missing_arg(required)
-                return
-            args_result[required] = a
-        if args_result['type'] == 'worker':
-            for required in worker_required:
-                a = self.get_argument(required, None)
-                if a is None:
-                    self.missing_arg(required)
-                    return
-                args_result[required] = a
-        else:
-            for required in supervisor_required:
-                a = self.get_argument(required, None)
-                if a is None:
-                    self.missing_arg(required)
-                    return
-                args_result[required] = a
-        e = Employee.make_employee(args_result)
-        self.db.add_or_update(e)
-        self.set_status(200)
-        self.write(json.dumps({C.STATUS: C.SUCCESS}))
 
-    def post(self):
-        required_args = (
-            'id',
-            'type',
-            'name',
-        )
-        worker_required = (
-            'shift',
-            'rate'
-        )
-        supervisor_required = (
-            'salary',
-            'bonus'
-        )
+    REQUIRED_ARGS = (
+        'id',
+        'type',
+        'name',
+    )
+    WORKER_REQUIRED = (
+        'shift',
+        'rate'
+    )
+    SUPERVISOR_REQUIRED = (
+        'salary',
+        'bonus'
+    )
+
+    def __init__(self, *args, **kwargs):
+        self.get = self.handle
+        self.post = self.handle
+        super().__init__(*args, **kwargs)
+
+    def handle(self):
         args_result = dict()
-        for required in required_args:
+        for required in EmployeeAddHandler.REQUIRED_ARGS:
             a = self.get_argument(required, None)
             if a is None:
                 self.missing_arg(required)
                 return
             args_result[required] = a
         if args_result['type'] == 'worker':
-            for required in worker_required:
+            for required in EmployeeAddHandler.WORKER_REQUIRED:
                 a = self.get_argument(required, None)
                 if a is None:
                     self.missing_arg(required)
                     return
                 args_result[required] = a
         else:
-            for required in supervisor_required:
+            for required in EmployeeAddHandler.SUPERVISOR_REQUIRED:
                 a = self.get_argument(required, None)
                 if a is None:
                     self.missing_arg(required)
